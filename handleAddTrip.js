@@ -72,7 +72,7 @@ function updateTripsDisplay() {
 
     trips.forEach((trip, index) => {
         const tripContainer = document.createElement('div');
-        tripContainer.classList.add('trip-info', 'card', 'mb-3');
+        tripContainer.classList.add('trip-info', 'trip-info-homepage', 'card', 'mb-3');
         tripContainer.innerHTML = `
             <h4>Trip: ${trip.name}</h4>
             <p>Date Range: ${trip.dateRange}</p>
