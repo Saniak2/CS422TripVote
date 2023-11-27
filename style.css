@@ -48,12 +48,12 @@
 /* Style for the trip card container */
 .trip-info.card {
   margin-bottom: 20px; 
-  cursor: pointer; 
+  cursor: default; 
   transition: background-color 0.3s ease; 
 }
 
 .trip-info.card:hover {
-  background-color: #f0f0f0; 
+  /* background-color: #f0f0f0;  */
 }
 
 .trip-section-title {
@@ -94,6 +94,17 @@
 .navbar .nav-link {
   margin-left: 10px; /* Add space to the left of each link */
   margin-right: 10px; /* Add space to the right of each link */
+}
+
+@media (max-width: 768px) {
+    .navbar-collapse {
+        justify-content: flex-end;
+    }
+}
+
+.navbar-toggler-icon {
+    /* change color of hamburger icon to white */
+    filter: invert(100%);
 }
 
 
@@ -450,4 +461,15 @@
 
 .add-btn-div{
     margin-top: 25px;
+}
+
+/* ----------------------------------- Homepage ----------------------------------- */
+.trip-info-homepage.card {
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.trip-info-homepage.card:hover {
+    background-color: #f8f9fa; /* Slightly lighter background on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transform: translateY(-5px); /* Slightly raise the card */
 }
