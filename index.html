@@ -26,7 +26,7 @@
 <body>
     <!-- NavBar -->
     <!-- ------------------------------------------------------------------ -->
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light">
+    <!-- <nav class="navbar sticky-top navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand">TripVote |</a>
             
@@ -47,7 +47,35 @@
                 </ul>
             </div>
         </div>
+    </nav> -->
+
+    <!-- Hamburger menu -->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">TripVote |</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="homepage.html">Trip</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#activitiesSection">Activities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#scheduleSection">Schedule</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#attendeesSection">Attendees</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
+
 
 
     <!-- Activites -->
@@ -249,14 +277,8 @@
                 <h2 class="m-0 text-center flex-grow-1" id="schedule">SCHEDULE</h2>
                 <!-- <button class="btn btn-primary add-btn-schedule" data-target="#addModalSchedule">+ Add To Schedule</button> -->
             </div>
+            
             <section class="trip-info card" id="tripsContainer">
-                <!-- <h3 id="tripNameDisplay">Trip: Florida Tropical Beach</h3>
-                <p>Date Range: <span id="dateRangeDisplay">06/03/2024 to 06/09/2024</span></p>
-                <p>Location: <span id="locationDisplay">Florida</span></p>
-                <p>Additional Info: <span id="additionalInfoDisplay">Hotel is Hotel Tampa Riverwalk</span></p>
-                <button class="btn btn-outline-secondary edit-btn-trip" onclick="openEditTripModal()">
-                    <i class="bi bi-pencil-square"></i> Edit
-                </button> -->
             </section>
 
             <div id="editModalTrip" class="modal">
