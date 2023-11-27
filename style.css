@@ -5,6 +5,29 @@
     --section-border-color: #9c9c9c;
 }
 
+#activitiesListContainer {
+  max-width: 100%; 
+  margin: 0 auto; 
+  text-align: center; 
+  margin-bottom: 50px;
+}
+
+.activity-item {
+  display: inline-block; 
+  width: 200px; 
+  margin: 10px; 
+  vertical-align: top;
+  text-align: left; 
+}
+
+/* Ensure a minimum of 3 cards per row */
+@media screen and (min-width: 600px) {
+  .activity-item {
+      width: calc(33.333% - 20px); /* Calculate width for 3 cards with margins */
+  }
+}
+
+
 /* Add this CSS for styling the toast */
 .toast {
   position: fixed;
@@ -24,23 +47,22 @@
 
 /* Style for the trip card container */
 .trip-info.card {
-  /* Existing styles for the trip card */
-  margin-bottom: 20px; /* Adjust as needed */
-  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
-  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  margin-bottom: 20px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
 }
 
 .trip-info.card:hover {
-  background-color: #f0f0f0; /* Slightly change the background color on hover */
+  background-color: #f0f0f0; 
 }
 
 .trip-section-title {
-  text-align: left; /* Aligns title to the left */
+  text-align: left; 
 }
 
 /* Add margin-bottom for spacing between sections */
 .current-trips, .past-trips {
-  margin-bottom: 30px; /* Adjust as needed */
+  margin-bottom: 30px; 
 }
 
 /* Change the navbar background color */
@@ -61,7 +83,12 @@
 
 /* Change the navbar link color to white on hover */
 .navbar .navbar-nav .nav-link:hover {
-  color: #071c10;
+  color: #868686;
+}
+
+/* Underline the active nav link */
+.navbar .navbar-nav .nav-link.active {
+  text-decoration: underline;
 }
 
 .navbar .nav-link {
@@ -85,6 +112,18 @@
     user-select: none; /* Prevent text selection */
 }
 
+.like-btn-active {
+    color: #77dd77;
+}
+
+.activity-image {
+    width: 100%; 
+    height: auto; 
+    object-fit: cover; 
+    max-width: 634px; 
+    max-height: 422px; 
+}
+
 /* Add/Edit Activity Form */
 /* ------------------------------------------------------------------ */
 /* Modal (background) */
@@ -104,10 +143,10 @@
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto; 
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%;
 }
 
 /* The Close Button */
@@ -127,7 +166,6 @@
 
 .modal {
     display: none; /* Hidden by default */
-    /* Other styles to make it a modal */
 }
 
 .modal-content h2 {
@@ -136,10 +174,10 @@
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%; 
 }
 
 .close {
@@ -207,8 +245,8 @@
   background-color: var(--section-bg-color); */
   padding: 20px;
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  align-items: flex-start; /* Align children to the start of the cross axis */
+  flex-direction: column; 
+  align-items: flex-start; 
 }
 
 .trip-info.card {
@@ -218,7 +256,7 @@
 }
 
 .trip-info .trip-details {
-  margin-bottom: 10px; /* Add space between trip details and the button */
+  margin-bottom: 10px; 
 }
 
 .trip-info {
@@ -246,14 +284,14 @@
 /* Calendar view */
 /* ------------------------------------------------------------------ */
 /* Styles for sticky date container */
-.sticky-dates {
+/* .sticky-dates {
   position: sticky;
   top: 0;
-  background-color: white; /* Optional, for better visibility */
+  background-color: white;
   z-index: 10;
 }
 
-/* Styles for the rest of the elements */
+
 .calendar-container {
   display: flex;
   overflow-x: auto;
@@ -283,7 +321,7 @@
 .time-slot {
   padding: 5px;
   border-bottom: 1px solid #eee;
-}
+} */
 
 
 
@@ -353,4 +391,63 @@
 
 .btn-primary:hover {
   background-color: #0056b3;
+}
+
+
+
+/* ********************************************************************* */
+/* New wweekly view */
+.weekly-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+/* General styles for the schedule container */
+#scheduleContainer {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-bottom: 50px;
+}
+
+#scheduleContainer .table {
+  width: 100%;
+  /* table-layout: fixed; */
+}
+
+#scheduleContainer th, #scheduleContainer td {
+    border: 1px solid grey; /* Adds a solid grey border around each cell */
+    padding: 10px; /* Adds some padding inside each cell for better readability */
+    text-align: center;
+}
+
+/* Optional: you can add specific styles for header cells if needed */
+#scheduleContainer th {
+    background-color: #f2f2f2; /* A light grey background for header cells */
+    text-align: center; /* Center aligns header text */
+    padding: 36px;
+}
+
+/* Style for merged cells to ensure consistent appearance */
+#scheduleContainer td[rowspan] {
+    vertical-align: top; /* Aligns content to the top of merged cells */
+}
+
+.has-activity {
+    background-color: rgba(173, 182, 237, 0.625)
+}
+
+#scheduleContainer td {
+    position: relative;
+}
+
+.edit-cell-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+.add-btn-div{
+    margin-top: 25px;
 }

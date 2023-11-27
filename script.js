@@ -6,53 +6,53 @@
 // ------------------------------------------------------------------
 // this code does not permanently store the like count anywhere
 // it will reset when the page is refreshed
-document.querySelectorAll('.like-btn').forEach(button => {
-    button.addEventListener('click', function () {
-        // Retrieve the current like count from data-likes attribute
-        let likeCount = parseInt(this.getAttribute('data-likes'));
+// document.querySelectorAll('.like-btn').forEach(button => {
+//     button.addEventListener('click', function () {
+//         // Retrieve the current like count from data-likes attribute
+//         let likeCount = parseInt(this.getAttribute('data-likes'));
         
-        // Check if the button is already highlighted (green)
-        if (this.style.backgroundColor === 'rgb(119, 221, 119)') { // RGB value of green
-            // Decrement the like count and reset the color
-            likeCount--;
-            this.style.backgroundColor = ''; // Reset to default
-        } else {
-            // Increment the like count and change the color to green
-            likeCount++;
-            this.style.backgroundColor = '#77dd77'; // Green color
-        }
+//         // Check if the button is already highlighted (green)
+//         if (this.style.backgroundColor === 'rgb(119, 221, 119)') { // RGB value of green
+//             // Decrement the like count and reset the color
+//             likeCount--;
+//             this.style.backgroundColor = ''; // Reset to default
+//         } else {
+//             // Increment the like count and change the color to green
+//             likeCount++;
+//             this.style.backgroundColor = '#77dd77'; // Green color
+//         }
         
-        // Update the data-likes attribute and the display
-        this.setAttribute('data-likes', likeCount);
-        this.querySelector('.like-count').textContent = likeCount;
-    });
-});
+//         // Update the data-likes attribute and the display
+//         this.setAttribute('data-likes', likeCount);
+//         this.querySelector('.like-count').textContent = likeCount;
+//     });
+// });
 
 // Edit Trip Form
 // ------------------------------------------------------------------
 // Get the modal
-document.addEventListener("DOMContentLoaded", function () {
-  // Get the modal
-    var modalTripEdit = document.getElementById("editModalTrip");
+// document.addEventListener("DOMContentLoaded", function () {
+//   // Get the modal
+//     var modalTripEdit = document.getElementById("editModalTrip");
 
-    // Get the button that opens the modal
-    var btnTripEdit  = document.querySelectorAll(".edit-btn-trip");
+//     // Get the button that opens the modal
+//     var btnTripEdit  = document.querySelectorAll(".edit-btn-trip");
 
-    // Get the <span> element that closes the modal
-    var spanTripEdit  = document.getElementsByClassName("close edit trip")[0];
+//     // Get the <span> element that closes the modal
+//     var spanTripEdit  = document.getElementsByClassName("close edit trip")[0];
 
-    // When the user clicks on the button, open the modal
-    btnTripEdit.forEach(function (editBtn) {
-        editBtn.onclick = function () {
-            modalTripEdit.style.display = "block";
-        }
-    });
+//     // When the user clicks on the button, open the modal
+//     btnTripEdit.forEach(function (editBtn) {
+//         editBtn.onclick = function () {
+//             modalTripEdit.style.display = "block";
+//         }
+//     });
 
-    // When the user clicks on <span> (x), close the modal
-    spanTripEdit.onclick = function () {
-        modalTripEdit.style.display = "none";
-    }
-});
+//     // When the user clicks on <span> (x), close the modal
+//     spanTripEdit.onclick = function () {
+//         modalTripEdit.style.display = "none";
+//     }
+// });
 
 
 // Edit Activity Form
@@ -108,7 +108,57 @@ span2.onclick = function () {
     modal2.style.display = "none";
 }
 
+// document.getElementById('activityForm').addEventListener('submit', function (e) {
+//     e.preventDefault();
 
+//     // Collect data from the form
+//     var activityData = {
+//         name: document.getElementById('activityName').value,
+//         price: document.getElementById('price').value,
+//         location: document.getElementById('location').value,
+//         time: document.getElementById('time').value,
+//         additionalInfo: document.getElementById('additionalInfo').value
+//     };
+
+//     // Send data to server
+//     fetch('/activities', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(activityData),
+//     })
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log('Success:', data);
+//             // Here you can also add code to dynamically add the new card to the page
+//         })
+//         .catch((error) => {
+//             console.error('Error:', error);
+//         });
+// });
+
+// // Function to dynamically add a new activity card
+// function addActivityCard(activity) {
+//     const activitiesGrid = document.getElementById('activitiesGrid'); // Assuming this is your grid's ID
+//     const newCard = `
+//         <div class="col">
+//             <div class="card">
+//                 <div class="card-body">
+//                     <h5 class="card-title">${activity.name}</h5>
+//                     <p class="card-text">
+//                         Price: ${activity.price}<br>
+//                         Location: ${activity.location}<br>
+//                         Time: ${activity.time}<br>
+//                         Additional Info: ${activity.additionalInfo}
+//                     </p>
+//                     <!-- Other card elements -->
+//                 </div>
+//             </div>
+//         </div>
+//     `;
+//     activitiesGrid.innerHTML += newCard;
+// }
 
 
 // *********************************************************************
@@ -161,29 +211,6 @@ spanAttend.onclick = function () {
     modalAttend.style.display = "none";
 }
 
-// Add Schedule Form
-// ------------------------------------------------------------------
-// Get the modal
-var modalSchedule= document.getElementById("addModalSchedule");
-
-// Get the button that opens the modal
-var btnSchedule = document.querySelectorAll(".add-btn-schedule");
-
-// Get the <span> element that closes the modal
-var spanSchedule = document.getElementsByClassName("close add schedule")[0];
-
-// When the user clicks on the button, open the modal
-btnSchedule.forEach(function (addBtn) {
-    addBtn.onclick = function () {
-        modalSchedule.style.display = "block";
-    }
-});
-
-// When the user clicks on <span> (x), close the modal
-spanSchedule.onclick = function () {
-    modalSchedule.style.display = "none";
-}
-
 
 // JavaScript function to redirect to the trip page
 function redirectToTrip(tripUrl) {
@@ -222,62 +249,25 @@ function showNotification() {
 }
 
 
-// *********************************************************************
-// Schedule
-// *********************************************************************
-function addTimeIndicators(container) {
-    for (let i = 7; i <= 24; i++) { // for 7 AM to 7 PM
-        let time = i % 12 || 12; // convert 24h to 12h format
-        let suffix = i < 12 ? 'AM' : 'PM';
-        let timeIndicator = document.createElement('div');
-        timeIndicator.classList.add('time-slot');
-        timeIndicator.textContent = `${time}:00 ${suffix}`;
-        container.appendChild(timeIndicator);
+
+var inst = mobiscroll.eventcalendar('#demo-desktop-week-view', {
+    theme: 'ios',
+    themeVariant: 'light',
+    clickToCreate: true,
+    dragToCreate: true,
+    dragToMove: true,
+    dragToResize: true,
+    eventDelete: true,
+    view: {
+        schedule: { type: 'week' }
+    },
+    onEventClick: function (event, inst) {
+        mobiscroll.toast({
+            message: event.event.title
+        });
     }
-}
-
-function addDayColumn(container, day, date) {
-    let dayColumn = document.createElement('div');
-    dayColumn.classList.add('day');
-
-    let dayName = document.createElement('div');
-    dayName.classList.add('day-name');
-    dayName.textContent = day;
-
-    let dayDate = document.createElement('div');
-    dayDate.classList.add('day-date');
-    dayDate.textContent = date;
-
-    dayColumn.appendChild(dayName);
-    dayColumn.appendChild(dayDate);
-
-    // Here you would add your events or activities
-    container.appendChild(dayColumn);
-}
-
-// *********************************************************************
-// *********************************************************************
-document.addEventListener('DOMContentLoaded', function () {
-    const timeIndicators = document.querySelector('.time-indicators');
-    addTimeIndicators(timeIndicators);
-
-    const daysContainer = document.querySelector('.days-container');
-    // Array of objects containing day names and dates
-    const days = [
-        { day: 'Monday', date: '06/03/2024' },
-        { day: 'Tuesday', date: '06/04/2024' },
-        { day: 'Wednesday', date: '06/05/2024' },
-        { day: 'Thursday', date: '06/06/2024' },
-        { day: 'Friday', date: '06/07/2024' },
-        { day: 'Saturday', date: '06/08/2024' },
-        { day: 'Sunday', date: '06/09/2024' }
-    ];
-
-    days.forEach(dayInfo => {
-        addDayColumn(daysContainer, dayInfo.day, dayInfo.date);
-    });
-
-    
 });
 
-
+mobiscroll.util.http.getJson('https://trial.mobiscroll.com/events/?vers=5', function (events) {
+    inst.setEvents(events);
+}, 'jsonp');
